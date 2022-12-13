@@ -28,10 +28,6 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    validateInput(pilotName)
-    validateInput(copilotName)
-    validateInput(fuelLevel)
-    validateInput(cargoLevel)
 
    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
     window.alert("All fields required, Please fill in field.")
@@ -40,9 +36,13 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    } else if (validateInput(fuelLevel) === "Is a number" || validateInput(cargoLevel) === "Is a number") {
     window.alert("All fields required, Please fill in field.")
    } 
+
+   // if pilot/ copolit
+   //if fuel Level compared max to min level
+   // if cargo level compared to max vs min level
   
    list.innerHTML += `
-   <li> 1. The Pilot name is: ${pilot} </li> 
+   <li> 1. Pilot ${pilot} is ${pilotStatus} </li> 
    <li> 1. The Co-Pilot's name is: ${copilot} </li> 
    <li> 1. The Fuel Level is:  ${fuelLevel} </li> 
    <li> 1. The Cargo Level is: ${cargoLevel} </li> 
