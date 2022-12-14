@@ -20,6 +20,10 @@ window.addEventListener("load", function() {
  const copilot = document.querySelector("copilotName");
  const fuelLevel = document.querySelector("fuelLevel");
  const cargoLevel = document.querySelector("cargoMass");
+ const pilotStatus = document.getElementById("pilotStatus");
+ const copilotStatus = document.getElementById("copilotStatus");
+ const fuelStatus = document.getElementById("fuelStatus");
+ const cargoStatus = document.getElementById("cargoStatus");
  const button = document.getElementById("formSubmit");
 
  button.addEventListener("click", formSubmission());

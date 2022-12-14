@@ -32,22 +32,24 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
     window.alert("All fields required, Please fill in field.")
     preventDefault()
-   } else if (validateInput(pilot) === "Not a number" || validateInput(copilot) === "Not a number" || validateInput(fuelLevel) === "Not a number" || validateInput(cargoLevel) === "Not a number") {
-    window.alert("All fields required, Please fill in field.")
+   } else if (pilot !== "string" || copilot !== "string"){
+    window.alert("Invalid Input: Please enter proper name.")
+    preventDefault()
+   } else if (validateInput(fuelLevel) === "Not a number" || validateInput(cargoLevel) === "Not a number") {
+    window.alert("Invalid Input: Please input valid number.")
     preventdefault()
    } else if (validateInput(fuelLevel) === "Is a number" || validateInput(cargoLevel) === "Is a number") {
-    window.alert("All fields required, Please fill in field.")
-   } 
+    
+   } TODO// NEED THIS TO CHECK THAT PILOT NAME AND COPILOT NAME IS A STRING AND NOTHING ELSE IS ALLOWED IN THESE FORM FIELDS 
+    
 
+   if ()
    // if pilot/ copolit
    //if fuel Level compared max to min level
    // if cargo level compared to max vs min level
   
    list.innerHTML += `
-   <li> 1. Pilot ${pilot} is ${pilotStatus} </li> 
-   <li> 1. The Co-Pilot's name is: ${copilot} </li> 
-   <li> 1. The Fuel Level is:  ${fuelLevel} </li> 
-   <li> 1. The Cargo Level is: ${cargoLevel} </li> 
+ 
    `
    
 
