@@ -31,8 +31,10 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
     window.alert("All fields required, Please fill in field.")
+    preventDefault()
    } else if (validateInput(pilot) === "Not a number" || validateInput(copilot) === "Not a number" || validateInput(fuelLevel) === "Not a number" || validateInput(cargoLevel) === "Not a number") {
     window.alert("All fields required, Please fill in field.")
+    preventdefault()
    } else if (validateInput(fuelLevel) === "Is a number" || validateInput(cargoLevel) === "Is a number") {
     window.alert("All fields required, Please fill in field.")
    } 

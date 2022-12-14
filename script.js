@@ -22,10 +22,7 @@ window.addEventListener("load", function() {
  const cargoLevel = document.querySelector("cargoMass");
  const button = document.getElementById("formSubmit");
 
- button.addEventListener("click", function (event){
-  formSubmission();
-
- });
+ button.addEventListener("click", formSubmission());
 
 
 
