@@ -4,7 +4,7 @@ const { formSubmission } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
 
-   let listedPlanets =;
+   let listedPlanets = {};
    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
    let listedPlanetsResponse = myFetch();
    listedPlanetsResponse.then(function (result) {
@@ -18,6 +18,7 @@ window.addEventListener("load", function() {
  const launchStatus = document.getElementId("launchStatus");
  const pilot = document.getElementId("pilotName");
  const copilot = document.querySelector("copilotName");
+ console.log(copilotName)
  const fuelLevel = document.querySelector("fuelLevel");
  const cargoLevel = document.querySelector("cargoMass");
  const pilotStatus = document.getElementById("pilotStatus");
@@ -26,7 +27,7 @@ window.addEventListener("load", function() {
  const cargoStatus = document.getElementById("cargoStatus");
  const button = document.getElementById("formSubmit");
 
- button.addEventListener("click", formSubmission());
+ button.addEventListener("submit", formSubmission);
 
 
 
@@ -37,4 +38,3 @@ window.addEventListener("load", function() {
 
 
    
-});

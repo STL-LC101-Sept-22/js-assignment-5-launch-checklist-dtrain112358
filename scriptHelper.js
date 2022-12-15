@@ -1,5 +1,5 @@
 // Write your helper functions here!
-require('isomorphic-fetch');
+ //require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
@@ -30,27 +30,27 @@ function validateInput(testInput) {
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 
    if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
-    window.alert("All fields required, Please fill in field.")
-    preventDefault()
+    window.alert("All fields required, Please fill in field.");
+    preventDefault();
    } else if (pilot !== "string" || copilot !== "string"){
-    window.alert("Invalid Input: Please enter proper name.")
-    preventDefault()
+    window.alert("Invalid Input: Please enter a proper name.");
+    preventDefault();
    } else if (validateInput(fuelLevel) === "Not a number" || validateInput(cargoLevel) === "Not a number") {
-    window.alert("Invalid Input: Please input valid number.")
-    preventdefault()
+    window.alert("Invalid Input: Please input valid number.");
+    preventdefault();
    } else if (validateInput(fuelLevel) === "Is a number" || validateInput(cargoLevel) === "Is a number") {
     
    } TODO// NEED THIS TO CHECK THAT PILOT NAME AND COPILOT NAME IS A STRING AND NOTHING ELSE IS ALLOWED IN THESE FORM FIELDS 
     
 
-   if ()
+   //if ()
    // if pilot/ copolit
    //if fuel Level compared max to min level
    // if cargo level compared to max vs min level
   
-   list.innerHTML += `
+   //list.innerHTML += `
  
-   `
+   //`
    
 
 
@@ -64,15 +64,17 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 }
 
 async function myFetch() {
-    let planetsReturned;
+    let planetsReturned = {};
 
     planetsReturned = await fetch().then( function(response) {
-        });
 
+        });
     return planetsReturned;
 }
 
 function pickPlanet(planets) {
+    let planetSelected = math.floor(Math.random(plants)*8);
+    return planetSelected;
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
