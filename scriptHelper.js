@@ -1,25 +1,25 @@
 // Write your helper functions here!
- //require('isomorphic-fetch');
+ require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
    // Here is the HTML formatting for our mission target div.
-   /*
+   document.getElementById("missionTarget").innerHTML =`
                 <h2>Mission Destination</h2>
                 <ol>
-                    <li>Name: </li>
-                    <li>Diameter: </li>
+                    <li>Name: ${name} </li>
+                    <li>Diameter: ${diameter} </li>
                     <li>Star: ${star}</li>
-                    <li>Distance from Earth: </li>
-                    <li>Number of Moons: </li>
+                    <li>Distance from Earth: ${distance} </li>
+                    <li>Number of Moons: ${moons} </li>
                 </ol>
-                <img src="">
-   */
+                <img src="${imageUrl}">
+   `
 }
 
 function validateInput(testInput) {
-    if (testInput = "") {
+    if (testInput === "") {
         return "Empty"
-    } else if (isNaN(testInput) = true) {
+    } else if (isNaN(testInput) === true) {
         return "Not a Number"
     } else {
         return "Is a number"
@@ -28,22 +28,27 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-
-   if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty"){
-    window.alert("All fields required, Please fill in field.");
-    preventDefault();
-   } else if (pilot !== "string" || copilot !== "string"){
-    window.alert("Invalid Input: Please enter a proper name.");
-    preventDefault();
-   } else if (validateInput(fuelLevel) === "Not a number" || validateInput(cargoLevel) === "Not a number") {
-    window.alert("Invalid Input: Please input valid number.");
-    preventdefault();
-   } else if (validateInput(fuelLevel) === "Is a number" || validateInput(cargoLevel) === "Is a number") {
+    const launchStatus = document.getElementId("launchStatus");
+    const pilotStatus = document.getElementById("pilotStatus");
+    const copilotStatus = document.getElementById("copilotStatus");
+    const fuelStatus = document.getElementById("fuelStatus");
+    const cargoStatus = document.getElementById("cargoStatus");
+    console.log(pilot, copilot, fuelLevel, cargoLevel)
+  if (validateInput(pilot.value) === "Empty" || validateInput(copilot.value) === "Empty" || validateInput(fuelLevel.value) === "Empty" || validateInput(cargoLevel.value) === "Empty"){
+    alert("All fields required, Please fill in field.");
+  };
+//    } else if (pilot !== "string" || copilot !== "string"){
+//     window.alert("Invalid Input: Please enter a proper name.");
     
-   } TODO// NEED THIS TO CHECK THAT PILOT NAME AND COPILOT NAME IS A STRING AND NOTHING ELSE IS ALLOWED IN THESE FORM FIELDS 
+//    } else if (validateInput(fuelLevel) === "Not a number" || validateInput(cargoLevel) === "Not a number") {
+//     window.alert("Invalid Input: Please input valid number.");
+    
+//    } else if (validateInput(fuelLevel) === "Is a number" || validateInput(cargoLevel) === "Is a number") {
+    
+//    } TODO// NEED THIS TO CHECK THAT PILOT NAME AND COPILOT NAME IS A STRING AND NOTHING ELSE IS ALLOWED IN THESE FORM FIELDS 
     
 
-   //if ()
+   
    // if pilot/ copolit
    //if fuel Level compared max to min level
    // if cargo level compared to max vs min level
@@ -51,30 +56,26 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    //list.innerHTML += `
  
    //`
-   
+  
 
 
   
-    TODO // check to make sure all fields are filled out = empty
-    TODO // check validation of form fields = string or number or not a number
-    TODO //update statues of form fields
-    TODO // check if form field values meet required parameters to Launch?
+  
 
    
 }
 
 async function myFetch() {
-    let planetsReturned = {};
+    let planetsReturned;
 
-    planetsReturned = await fetch().then( function(response) {
-
+    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+        return response.json()
         });
     return planetsReturned;
 }
 
-function pickPlanet(planets) {
-    let planetSelected = math.floor(Math.random(plants)*8);
-    return planetSelected;
+function pickPlanet(planets) { 
+    return planets[Math.floor(Math.random()*planets.length)];
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
