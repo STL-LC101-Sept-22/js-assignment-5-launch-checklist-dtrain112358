@@ -57,10 +57,10 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     window.alert("Invalid Input: Please check type.");
   } else {
       
-      if (fuelLevel.value > 10000 && cargoLevel.value < 10000) {
+      if (fuelLevel.value >= 10000 && cargoLevel.value < 10000) {
           launchStatus.innerText = "Shuttle is ready to launch";
           launchStatus.style.color = "green";
-          list.style.visibility = "hidden";
+          list.style.visibility = "visible";
         } else {
             launchStatus.innerText = "Shuttle NOT ready to launch";
             launchStatus.style.color = "red";
@@ -73,7 +73,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
             } else {
                fuelStatus.innerText = "Fuel level high enough to launch" 
             }
-            if (cargoLevel.value > 10000) {
+            if (cargoLevel.value >= 10000) {
                cargoStatus.innerText = "Cargo mass too heavy for launch"
             } else {
                cargoStatus.innerText = "Cargo mass low enough to launch" 
